@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     '@nuxt/icon',
-    '@nuxtjs/kinde',
     'radix-vue/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/fontaine',
@@ -70,6 +69,10 @@ export default defineNuxtConfig({
     strategy: 'prefix',
     defaultLocale: 'en',
     langDir: './i18n',
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false,
+    },
   },
 
   compatibilityDate: '2024-09-13',

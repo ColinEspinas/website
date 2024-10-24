@@ -16,9 +16,7 @@ Battery included Nuxt based starter template for my projects. Created to get a g
 - [Tailwind](https://tailwindcss.com/) + [Radix Vue](https://www.radix-vue.com/)
 - [Nuxt icon](https://github.com/nuxt/icon) + [Phosphor icons](https://phosphoricons.com/)
 - [Drizzle](https://orm.drizzle.team/)
-- [Kinde](https://www.kinde.com/)
 - [Umami](https://umami.is/)
-- [Stripe](https://stripe.com/)
 - [Tolgee](https://tolgee.io/)
 
 ## Setup
