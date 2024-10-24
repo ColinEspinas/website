@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// const { t } = useI18n()
+
 interface Link {
   to: string
   text: string

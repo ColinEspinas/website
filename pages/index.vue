@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { t } = useI18n()
-
 useSeoMeta({
   title: 'test',
 })
@@ -16,6 +14,9 @@ useHead({
 </script>
 
 <template>
+  <div class="absolute top-0 h-full left-1/2 -translate-x-1/2 w-full max-w-[700px] grid grid-cols-5 justify-items-center">
+    <AtomsGuide v-for="index in 5" :key="index" class="h-full" />
+  </div>
   <div class="flex justify-center w-full">
     <div class="flex flex-col gap-6 w-full items-center max-w-[600px] py-10 px-5 relative">
       <OrganismsNavigation />
