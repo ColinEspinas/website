@@ -45,15 +45,16 @@ const shapeClasses = {
 }
 
 const buttonRef = useTemplateRef<HTMLDivElement>('button')
-const { elementX, elementY } = useMouseInElement(buttonRef)
+const { elementX, elementY, elementHeight, elementWidth } = useMouseInElement(buttonRef)
 
 const gradientPosition = computed(() => {
-  // if (isOutside.value) return 'circle at 50% 100%'
-  // const positionX = Math.min(Math.max(elementX.value, 0), elementWidth.value)
-  // const positionY = Math.min(Math.max(elementY.value, 0), elementHeight.value)
-  const positionX = elementX.value
-  const positionY = elementY.value
-  return `circle at ${positionX}px ${positionY}px`
+  // If mouse is not near the edges, don't show the gradient
+  const padding = 100
+  if (elementX.value > -padding && elementX.value < elementWidth.value + padding
+    && elementY.value > -padding && elementY.value < elementHeight.value + padding) {
+    return `circle at ${elementX.value}px ${elementY.value}px`
+  }
+  return ''
 })
 </script>
 
