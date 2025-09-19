@@ -20,8 +20,8 @@ const { width } = useWindowSize()
     <h1 class="text-2xl font-semibold text-base-content-200">
       A developer focused on crafting tools and experiences to make the web more open, accessible and beautiful.
     </h1>
-    <div class="flex flex-row gap-4">
-      <UiButton text="Start a conversation" variant="accent" />
+    <div class="flex flex-col sm:flex-row gap-4">
+      <UiButton text="Start a conversation" variant="accent" class="w-fit" />
       <div class="flex flex-row gap-2">
         <UiButton before-icon="ph:github-logo" variant="secondary" shape="rounded" to="" />
         <UiButton after-icon="ph:x-logo" variant="secondary" shape="rounded" to="" />

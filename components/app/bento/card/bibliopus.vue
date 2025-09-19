@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const covers = [
-  'https://covers.openlibrary.org/b/isbn/1794329897-M.jpg',
-  'https://covers.openlibrary.org/b/isbn/9782330155582-M.jpg',
-  'https://covers.openlibrary.org/b/isbn/9782266239288-M.jpg',
+  'https://covers.openlibrary.org/b/isbn/1794329897-L.jpg',
+  'https://covers.openlibrary.org/b/isbn/9782330155582-L.jpg',
+  'https://covers.openlibrary.org/b/isbn/9782266239288-L.jpg',
 ]
 </script>
 
@@ -23,8 +23,8 @@ const covers = [
         class="absolute bottom-0 left-0 z-0"
       />
     </div>
-    <footer class="absolute z-10 bottom-0 left-0 md:opacity-0 group-hover:opacity-100 transition-opacity p-4 bg-gradient-to-t from-base-content-100/10 to-base-content-100/0 to-50% w-full rounded-b-xl">
-      <div class="flex gap-2 md:translate-y-full group-hover:translate-y-0 transition-transform">
+    <footer class="absolute z-10 bottom-0 left-0 p-4 bg-gradient-to-t from-base-content-100/10 to-base-content-100/0 to-50% w-full rounded-b-xl">
+      <div class="flex gap-2">
         <UiButton
           variant="secondary"
           shape="rounded"
