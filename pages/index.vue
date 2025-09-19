@@ -6,9 +6,7 @@
     <AppHeader />
     <AppBento>
       <AppBentoCardBibliopus />
-      <AppBentoCardBase>
-        2
-      </AppBentoCardBase>
+      <AppBentoCardStack />
       <AppBentoCardBase class="row-span-2">
         3
       </AppBentoCardBase>
