@@ -9,6 +9,7 @@ withDefaults(defineProps<{
   disabled?: boolean
   variant?: 'primary' | 'secondary' | 'accent'
   align?: 'left' | 'center' | 'right'
+  shape?: 'rounded' | 'default'
   to?: string
   target?: '_blank' | '_self'
   external?: boolean
@@ -17,6 +18,7 @@ withDefaults(defineProps<{
   disabled: false,
   variant: 'primary',
   align: 'left',
+  shape: 'default',
   external: false,
 })
 
@@ -25,15 +27,20 @@ const emits = defineEmits<{
 }>()
 
 const variantClasses = {
-  primary: 'bg-base-content text-base ring-0 border-1 border-transparent ring-base-content/20 hover:ring-3 transition-all',
-  secondary: 'bg-base text-base-content border-1 border-base-content/20 ring-0 ring-base-content/10 hover:ring-3 transition-all',
-  accent: 'bg-accent text-accent-content ring-0 ring-accent/25 hover:ring-3 border-1 border-accent/25 transition-all bg-radial-(--gradient-position) from-base/20 to-transparent to-50%',
+  primary: 'bg-base-content-100 base-100 ring-0 border-1 border-transparent ring-base-content-100/20 hover:ring-3 transition-all',
+  secondary: 'bg-base text-base-content-100 bg-base-100 border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all',
+  accent: 'bg-accent text-accent-content ring-0 ring-accent/25 hover:ring-3 border-1 border-accent transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
 }
 
 const alignClasses = {
   left: 'justify-start',
   center: 'justify-center',
   right: 'justify-end',
+}
+
+const shapeClasses = {
+  rounded: 'rounded-full',
+  default: 'rounded-lg',
 }
 
 const buttonRef = useTemplateRef<HTMLDivElement>('button')
@@ -54,8 +61,8 @@ const gradientPosition = computed(() => {
     v-if="to"
     ref="button"
     :to="to"
-    class="py-2 px-3 flex gap-2 rounded-lg items-center outline-none font-medium active:scale-95"
-    :class="[variantClasses[variant], alignClasses[align]]"
+    class="py-2 px-3 flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
+    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape]]"
     :style="{ '--gradient-position': gradientPosition }"
     :target="target"
     :external
@@ -67,10 +74,10 @@ const gradientPosition = computed(() => {
   <button
     v-else
     ref="button"
-    class="py-2 px-3 flex gap-2 rounded-lg items-center outline-none font-medium active:scale-95"
+    class="py-2 px-3 flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
     :style="{ '--gradient-position': gradientPosition }"
     :disabled="disabled"
-    :class="[variantClasses[variant], alignClasses[align]]"
+    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape]]"
     :type="type"
     @click="emits('click')"
   >

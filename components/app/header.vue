@@ -1,57 +1,32 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
-const { user } = useAuth()
-
-const avatarPlaceholder = computed(() => {
-  if (!user)
-    return ''
-  return user.given_name && user.family_name
-    ? `${user.given_name[0]}${user.family_name[0]}`
-    : user.email[0]
-})
+const { width } = useWindowSize()
 </script>
 
 <template>
-  <header class="mt-2 flex justify-between items-center p-2 rounded-xl">
-    <div class="flex gap-2 items-center">
-      <NuxtLink :to="localePath('/')">
-        <AppLogo />
-      </NuxtLink>
-    </div>
-    <div class="flex gap-2 items-center">
-      <template v-if="$auth.loggedIn">
-        <div class="flex gap-2 items-center">
-          <p v-if="$auth.user.given_name && $auth.user.family_name" class="font-medium">
-            {{ `${$auth.user.given_name} ${$auth.user.family_name[0]}.` }}
-          </p>
-          <p v-else class="font-medium">
-            {{ $auth.user.email }}
-          </p>
-          <UiAvatar
-            :picture="$auth.user.picture ?? ''"
-            :placeholder="avatarPlaceholder"
-          />
-        </div>
-        <UiButton
-          to="/api/logout"
-          external
-          variant="secondary"
-          before-icon="ph:sign-out-bold"
-          :text="$t('common.sign-out')"
-        />
+  <header class="flex flex-col gap-6 my-28">
+    <AppAvailability />
+    <h2 class="text-5xl font-bold">
+      Hello,
+      <br>
+      I'm
+      <template v-if="width < 465">
+        <UiWavyText>Colin</UiWavyText>&nbsp;
+        <UiWavyText>Espinas</UiWavyText>
       </template>
       <template v-else>
-        <UiButton
-          :text="$t('common.sign-in')"
-          :to="localePath('/auth/sign-in')"
-          variant="secondary"
-        />
-        <UiButton
-          :text="$t('common.sign-up')"
-          :to="localePath('/auth/sign-up')"
-          variant="accent"
-        />
+        <UiWavyText>Colin Espinas</UiWavyText>
       </template>
+    </h2>
+    <h1 class="text-2xl font-semibold text-base-content-200">
+      A developer focused on crafting tools and experiences to make the web more open, accessible and beautiful.
+    </h1>
+    <div class="flex flex-row gap-4">
+      <UiButton text="Start a conversation" variant="accent" />
+      <div class="flex flex-row gap-2">
+        <UiButton before-icon="ph:github-logo" variant="secondary" shape="rounded" to="" />
+        <UiButton after-icon="ph:x-logo" variant="secondary" shape="rounded" to="" />
+        <UiButton after-icon="ph:linkedin-logo" variant="secondary" shape="rounded" to="" />
+      </div>
     </div>
   </header>
 </template>

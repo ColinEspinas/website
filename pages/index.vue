@@ -1,18 +1,26 @@
 <script setup lang="ts">
-const { loggedIn } = useAuth()
-
-if (!loggedIn) {
-  navigateTo('/auth/sign-up')
-}
-
-const { data: offers } = useFetch('/api/offers')
 </script>
 
 <template>
   <div>
-    <h1>Welcome to Sparkle</h1>
-    <div>
-      <AppOfferCard v-for="offer in offers" :key="offer.id" :offer="offer" />
-    </div>
+    <AppHeader />
+    <AppBento>
+      <AppBentoCardBibliopus />
+      <AppBentoCardBase>
+        2
+      </AppBentoCardBase>
+      <AppBentoCardBase class="row-span-2">
+        3
+      </AppBentoCardBase>
+      <AppBentoCardBase>
+        4
+      </AppBentoCardBase>
+      <AppBentoCardBase>
+        5
+      </AppBentoCardBase>
+      <AppBentoCardBase>
+        6
+      </AppBentoCardBase>
+    </AppBento>
   </div>
 </template>

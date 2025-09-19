@@ -18,8 +18,8 @@ const { size = 'md' } = defineProps<{
     }"
   >
     <AvatarImage :src="picture" />
-    <AvatarFallback class="flex items-center justify-center bg-base-content w-full h-full">
-      <span class="text-base font-medium">
+    <AvatarFallback class="flex items-center justify-center bg-base-content-100 w-full h-full">
+      <span class="text-base-100 font-medium">
         {{ placeholder }}
       </span>
     </AvatarFallback>
