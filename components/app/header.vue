@@ -23,9 +23,27 @@ const { width } = useWindowSize()
     <div class="flex flex-col sm:flex-row gap-4">
       <UiButton text="Start a conversation" variant="accent" class="w-fit" />
       <div class="flex flex-row gap-2">
-        <UiButton before-icon="ph:github-logo" variant="secondary" shape="rounded" to="" />
-        <UiButton after-icon="ph:x-logo" variant="secondary" shape="rounded" to="" />
-        <UiButton after-icon="ph:linkedin-logo" variant="secondary" shape="rounded" to="" />
+        <UiButton
+          before-icon="ph:github-logo"
+          variant="secondary"
+          shape="rounded"
+          to="https://github.com/ColinEspinas"
+          target="_blank"
+        />
+        <UiButton
+          after-icon="ph:x-logo"
+          variant="secondary"
+          shape="rounded"
+          to="https://x.com/call_innn"
+          target="_blank"
+        />
+        <UiButton
+          after-icon="ph:linkedin-logo"
+          variant="secondary"
+          shape="rounded"
+          to="https://www.linkedin.com/in/colin-espinas/"
+          target="_blank"
+        />
       </div>
     </div>
   </header>

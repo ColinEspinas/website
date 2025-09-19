@@ -40,15 +40,17 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
         <div class="flex flex-col">
           <UiButton
             variant="secondary"
+            size="sm"
             before-icon="ph:arrow-up"
             text="Go back up"
             @click="y = 0"
           />
         </div>
       </nav>
-      <p class="text-sm text-base-content-200 font-semibold mt-10">
-        © 2024 Colin Espinas. All rights reserved.
-      </p>
+      <div class="text-sm text-base-content-200 font-semibold mt-10">
+        <p>All content © 2025 Colin Espinas. All Rights reserved.</p>
+        <p>Source code is available under the MIT License.</p>
+      </div>
     </div>
   </footer>
 </template>

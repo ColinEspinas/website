@@ -9,6 +9,7 @@ withDefaults(defineProps<{
   disabled?: boolean
   variant?: 'primary' | 'secondary' | 'accent' | 'glass'
   align?: 'left' | 'center' | 'right'
+  size?: 'sm' | 'md' | 'lg'
   shape?: 'rounded' | 'default'
   to?: string
   target?: '_blank' | '_self'
@@ -19,6 +20,7 @@ withDefaults(defineProps<{
   variant: 'primary',
   align: 'left',
   shape: 'default',
+  size: 'md',
   external: false,
 })
 
@@ -44,6 +46,12 @@ const shapeClasses = {
   default: 'rounded-lg',
 }
 
+const sizeClasses = {
+  sm: 'text-sm py-1 px-2',
+  md: 'text-base py-2 px-3',
+  lg: 'text-lg py-3 px-4',
+}
+
 const buttonRef = useTemplateRef<HTMLDivElement>('button')
 const { elementX, elementY, elementHeight, elementWidth } = useMouseInElement(buttonRef)
 
@@ -63,28 +71,28 @@ const gradientPosition = computed(() => {
     v-if="to"
     ref="button"
     :to="to"
-    class="py-2 px-3 flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
-    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape]]"
+    class="flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
+    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape], sizeClasses[size]]"
     :style="{ '--gradient-position': gradientPosition }"
     :target="target"
     :external
   >
-    <Icon v-if="beforeIcon" class="my-1" :size="18" :name="beforeIcon" />
+    <Icon v-if="beforeIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
-    <Icon v-if="afterIcon" class="my-1" :size="18" :name="afterIcon" />
+    <Icon v-if="afterIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="afterIcon" />
   </NuxtLink>
   <button
     v-else
     ref="button"
-    class="py-2 px-3 flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
+    class="flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
     :style="{ '--gradient-position': gradientPosition }"
     :disabled="disabled"
-    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape]]"
+    :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape], sizeClasses[size]]"
     :type="type"
     @click="emits('click')"
   >
-    <Icon v-if="beforeIcon" class="my-1" :size="18" :name="beforeIcon" />
+    <Icon v-if="beforeIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
-    <Icon v-if="afterIcon" class="my-1" :size="18" :name="afterIcon" />
+    <Icon v-if="afterIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="afterIcon" />
   </button>
 </template>
