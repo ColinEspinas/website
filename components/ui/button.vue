@@ -7,7 +7,7 @@ withDefaults(defineProps<{
   beforeIcon?: string
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'accent'
+  variant?: 'primary' | 'secondary' | 'accent' | 'glass'
   align?: 'left' | 'center' | 'right'
   shape?: 'rounded' | 'default'
   to?: string
@@ -27,9 +27,10 @@ const emits = defineEmits<{
 }>()
 
 const variantClasses = {
-  primary: 'bg-base-content-100 base-100 ring-0 border-1 border-transparent ring-base-content-100/20 hover:ring-3 transition-all',
-  secondary: 'bg-base text-base-content-100 bg-base-100 border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all',
+  primary: 'bg-base-content-100 text-base-100 ring-0 border-1 border-transparent ring-base-content-100/20 hover:ring-3 transition-all',
+  secondary: 'bg-base-100/60 text-base-content-100  border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all',
   accent: 'bg-accent text-accent-content ring-0 ring-accent/25 hover:ring-3 border-1 border-accent transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
+  glass: 'bg-base-100/40 backdrop-blur-md shadow-md text-base-content-100 border-1 border-base-content-100/5 ring-0 ring-base-content-100/10 hover:ring-3 transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
 }
 
 const alignClasses = {
@@ -67,9 +68,9 @@ const gradientPosition = computed(() => {
     :target="target"
     :external
   >
-    <Icon v-if="beforeIcon" class="my-1" :name="beforeIcon" />
+    <Icon v-if="beforeIcon" class="my-1" :size="18" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
-    <Icon v-if="afterIcon" class="my-1" :name="afterIcon" />
+    <Icon v-if="afterIcon" class="my-1" :size="18" :name="afterIcon" />
   </NuxtLink>
   <button
     v-else
@@ -81,8 +82,8 @@ const gradientPosition = computed(() => {
     :type="type"
     @click="emits('click')"
   >
-    <Icon v-if="beforeIcon" class="my-1" :name="beforeIcon" />
+    <Icon v-if="beforeIcon" class="my-1" :size="18" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
-    <Icon v-if="afterIcon" class="my-1" :name="afterIcon" />
+    <Icon v-if="afterIcon" class="my-1" :size="18" :name="afterIcon" />
   </button>
 </template>

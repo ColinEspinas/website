@@ -23,10 +23,10 @@ const covers = [
         class="absolute bottom-0 left-0 z-0"
       />
     </div>
-    <footer class="absolute z-10 bottom-0 left-0 p-4 bg-gradient-to-t from-base-content-100/10 to-base-content-100/0 to-50% w-full rounded-b-xl">
+    <footer class="absolute z-10 bottom-0 left-0 p-4 bg-gradient-to-t from-base-content-100/50 to-base-content-100/0 to-100% w-full rounded-b-xl">
       <div class="flex gap-2">
         <UiButton
-          variant="secondary"
+          variant="glass"
           shape="rounded"
           before-icon="ph:arrow-square-out"
           to="https://bibliopus.app"
@@ -34,7 +34,7 @@ const covers = [
           external
         />
         <UiButton
-          variant="secondary"
+          variant="glass"
           shape="rounded"
           before-icon="ph:github-logo"
         />
