@@ -45,6 +45,12 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
           <div class="flex flex-col gap-2">
             <AppFooterLink
               to="/"
+              text="Codepen"
+              external
+              target="_blank"
+            />
+            <AppFooterLink
+              to="/"
               text="Source code"
               external
               target="_blank"
