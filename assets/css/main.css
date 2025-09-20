@@ -15,7 +15,7 @@
     --font-sans: 'Space Grotesk', sans-serif;
 
     --animate-fade-in: fade-in 300ms ease-out;
-    --animate-infinite-slider: scroll-l 20s linear infinite;
+    --animate-infinite-slider: scroll-l 30s linear infinite;
 }
 
 @layer base {
