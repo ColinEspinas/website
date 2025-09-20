@@ -8,8 +8,8 @@
       <AppBentoCardBibliopus />
       <AppBentoCardStack />
       <AppBentoCardMe />
-      <AppBentoCardIneka />
       <AppBentoCardEducation />
+      <AppBentoCardIneka />
     </AppBento>
   </div>
 </template>
