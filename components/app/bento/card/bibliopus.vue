@@ -34,7 +34,7 @@ const covers = [
         <UiButton
           variant="glass"
           shape="rounded"
-          before-icon="ph:github-logo"
+          before-icon="ph:code"
         />
       </div>
     </footer>
