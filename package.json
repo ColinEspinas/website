@@ -33,6 +33,7 @@
     "@vueuse/core": "^13.5.0",
     "@vueuse/motion": "^3.0.3",
     "@vueuse/nuxt": "^13.5.0",
+    "cobe": "^0.6.5",
     "drizzle-orm": "^0.44.2",
     "drizzle-zod": "^0.8.2",
     "nuxt": "^3.17.6",

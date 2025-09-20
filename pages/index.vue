@@ -9,6 +9,7 @@
       <AppBentoCardStack />
       <AppBentoCardMe />
       <AppBentoCardIneka />
+      <AppBentoCardEducation />
     </AppBento>
   </div>
 </template>
