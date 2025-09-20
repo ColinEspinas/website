@@ -9,7 +9,7 @@ const { width } = useWindowSize()
       Hello,
       <br>
       I'm
-      <template v-if="width < 465">
+      <template v-if="width <= 480">
         <UiWavyText>Colin</UiWavyText>&nbsp;
         <UiWavyText>Espinas</UiWavyText>
       </template>

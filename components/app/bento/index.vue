@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 grid-flow-dense auto-rows-fr gap-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-dense md:auto-rows-fr gap-3">
     <slot />
   </div>
 </template>

@@ -11,7 +11,11 @@
     --color-base-content-300: rgb(130, 130, 130);
     --color-success: rgb(127, 255, 0);
     --color-error: rgb(244, 67, 54);
+
     --font-sans: 'Space Grotesk', sans-serif;
+
+    --animate-fade-in: fade-in 300ms ease-out;
+    --animate-infinite-slider: scroll-l 20s linear infinite;
 }
 
 @layer base {
@@ -31,3 +35,11 @@
   }
 }
 
+@keyframes scroll-l {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--slide-width) * var(--slide-count)));
+    }
+}
