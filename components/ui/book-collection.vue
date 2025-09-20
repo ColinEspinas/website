@@ -17,7 +17,7 @@ withDefaults(defineProps<{
     target="_blank"
   >
     <div
-      class="absolute -bottom-8 flex justify-center items-end -space-x-10 w-full h-[calc(100%-68px)]"
+      class="absolute -bottom-4 flex justify-center items-end -space-x-10 w-full h-[calc(90%-68px)]"
     >
       <UseImage
         v-if="covers[0]"
