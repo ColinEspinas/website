@@ -10,33 +10,33 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
         <div class="flex flex-col md:flex-row gap-10">
           <div class="flex flex-col gap-2">
             <AppFooterLink
-              to="/"
+              :to="$localePath('index')"
               text="Home"
             />
             <AppFooterLink
-              to="/"
+              :to="$localePath('about')"
               text="About"
             />
             <AppFooterLink
-              to="/"
+              :to="$localePath('contact')"
               text="Contact"
             />
           </div>
           <div class="flex flex-col gap-2">
             <AppFooterLink
-              to="/"
+              to="https://github.com/ColinEspinas"
               text="Github"
               external
               target="_blank"
             />
             <AppFooterLink
-              to="/"
+              to="https://x.com/call_innn"
               text="X (Twitter)"
               external
               target="_blank"
             />
             <AppFooterLink
-              to="/"
+              to="https://www.linkedin.com/in/colin-espinas/"
               text="LinkedIn"
               external
               target="_blank"
@@ -44,13 +44,13 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
           </div>
           <div class="flex flex-col gap-2">
             <AppFooterLink
-              to="/"
+              to="https://codepen.io/Call_in"
               text="Codepen"
               external
               target="_blank"
             />
             <AppFooterLink
-              to="/"
+              to="https://github.com/ColinEspinas/website"
               text="Source code"
               external
               target="_blank"
