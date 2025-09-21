@@ -62,15 +62,6 @@ const gradientPosition = computed(() => {
           class="text-base font-medium hover:underline"
         />
       </li>
-      <li>
-        <UiButton
-          variant="ghost"
-          shape="rounded"
-          size="lg"
-          before-icon="ph:moon-duotone"
-          class="text-base font-medium hover:underline"
-        />
-      </li>
     </ul>
   </nav>
 </template>
