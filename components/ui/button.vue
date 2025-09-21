@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<{
   beforeIcon?: string
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'accent' | 'glass'
+  variant?: 'primary' | 'secondary' | 'accent' | 'glass' | 'ghost'
   align?: 'left' | 'center' | 'right'
   size?: 'sm' | 'md' | 'lg'
   shape?: 'rounded' | 'default'
@@ -33,6 +33,7 @@ const variantClasses = {
   secondary: 'bg-base-100 text-base-content-100 border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 not-disabled:hover:ring-3 transition-all disabled:bg-base-200 disabled:text-base-content-300 disabled:cursor-default',
   accent: 'bg-accent text-accent-content ring-0 ring-accent/25 hover:ring-3 border-1 border-accent transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
   glass: 'bg-base-100/40 backdrop-blur-md shadow-md text-base-content-100 border-1 border-base-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
+  ghost: 'bg-transparent text-base-content-100 ring-0 ring-base-content-100/10 hover:ring-3 border-1 border-base-content-100/20 transition-all disabled:text-base-content-300 disabled:cursor-default',
 }
 
 const alignClasses = {
