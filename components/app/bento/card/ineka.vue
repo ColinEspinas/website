@@ -18,9 +18,7 @@
           variant="secondary"
           shape="rounded"
           before-icon="ph:play"
-          to="https://bibliopus.app"
-          target="_blank"
-          external
+          text="Play"
         />
         <UiButton
           variant="secondary"

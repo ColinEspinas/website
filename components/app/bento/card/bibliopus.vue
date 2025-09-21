@@ -38,6 +38,7 @@ const covers = [
           before-icon="ph:arrow-square-out"
           to="https://bibliopus.app"
           target="_blank"
+          text="Visit"
           external
         />
         <UiButton

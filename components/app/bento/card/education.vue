@@ -13,7 +13,7 @@
       </h4>
     </header>
     <UiGlobe class="h-full w-full absolute -bottom-3/12 left-6/12 -translate-x-6/12" />
-    <footer class="w-full rounded-b-xl z-10">
+    <footer class="w-full flex rounded-b-xl z-10 justify-between">
       <div class="flex gap-2">
         <UiButton
           variant="secondary"
@@ -24,6 +24,14 @@
           variant="secondary"
           shape="rounded"
           before-icon="ph:arrow-right"
+        />
+      </div>
+      <div class="flex gap-2">
+        <UiButton
+          variant="secondary"
+          shape="rounded"
+          before-icon="ph:eye"
+          text="See more"
         />
       </div>
     </footer>
