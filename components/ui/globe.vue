@@ -3,51 +3,63 @@ import type { COBEOptions } from 'cobe'
 import createGlobe from 'cobe'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-interface GlobeProps {
-  config?: Partial<COBEOptions>
-  mass?: number
-  tension?: number
-  friction?: number
-  precision?: number
-}
+const props = defineProps<{
+  targetLocation: { lat: number, long: number }
+  markerLocations: { lat: number, long: number }[]
+}>()
 
-const props = withDefaults(defineProps<GlobeProps>(), {
-  mass: 1,
-  tension: 280,
-  friction: 100,
-  precision: 0.001,
-})
-
-const DEFAULT_CONFIG: COBEOptions = {
-  width: 800,
-  height: 800,
+const config: COBEOptions = {
+  width: 2000,
+  height: 2000,
   onRender: () => {},
   devicePixelRatio: 2,
-  phi: 5.2,
-  theta: 0.1,
+  phi: locationToAngles(props.targetLocation.lat, props.targetLocation.long)[0],
+  theta: locationToAngles(props.targetLocation.lat, props.targetLocation.long)[1],
   dark: 0,
   diffuse: 0.4,
-  mapSamples: 42000,
+  mapSamples: 12000,
   mapBrightness: 1.2,
+  mapBaseBrightness: 0,
   baseColor: [1, 1, 1],
-  markerColor: [251 / 255, 100 / 255, 21 / 255],
-  glowColor: [1.2, 1.2, 1.2],
-  scale: 2,
-  offset: [0, 300],
-  markers: [
-    { location: [48.8935752, 2.2243825], size: 0.08 },
-    { location: [48.7962387, -67.5651266], size: 0.08 },
-    { location: [46.1476498, -1.1575164], size: 0.08 },
-    { location: [45.0399745, 3.8786405], size: 0.08 },
-  ],
+  markerColor: [87 / 255, 74 / 255, 226 / 255],
+  glowColor: [1, 1, 1],
+  scale: 1.5,
+  offset: [150, 80],
+  markers: props.markerLocations?.map(location => ({
+    location: [location.lat, location.long],
+    size: 0.07,
+  })),
 }
 
 const globeCanvasRef = ref<HTMLCanvasElement>()
 const width = ref(0)
+const currentPhi = ref(0)
+const currentTheta = ref(0)
 
 let globe: ReturnType<typeof createGlobe> | null = null
 
+function locationToAngles(lat: number, long: number) {
+  return [Math.PI - ((long * Math.PI) / 180 - Math.PI / 2), (lat * Math.PI) / 180]
+}
+
 function onRender(state: Record<string, unknown>) {
+  const doublePi = Math.PI * 2
+  state.phi = currentPhi.value
+  state.theta = currentTheta.value
+  const [focusPhi, focusTheta] = locationToAngles(
+    props.targetLocation.lat,
+    props.targetLocation.long,
+  )
+  const distPositive = (focusPhi - currentPhi.value + doublePi) % doublePi
+  const distNegative = (currentPhi.value - focusPhi + doublePi) % doublePi
+  // Control the speed
+  if (distPositive < distNegative) {
+    currentPhi.value += distPositive * 0.08
+  }
+  else {
+    currentPhi.value -= distNegative * 0.08
+  }
+  currentTheta.value = currentTheta.value * 0.92 + focusTheta * 0.08
   state.width = width.value * 2
   state.height = width.value * 2
 }
@@ -59,8 +71,6 @@ function onResize() {
 }
 
 function createGlobeOnMounted() {
-  const config = { ...DEFAULT_CONFIG, ...props.config }
-
   globe = createGlobe(globeCanvasRef.value!, {
     ...config,
     width: width.value * 2,

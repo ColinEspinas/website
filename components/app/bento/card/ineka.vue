@@ -23,7 +23,7 @@
         <UiButton
           variant="secondary"
           shape="rounded"
-          before-icon="ph:code"
+          before-icon="ph:github-logo"
         />
       </div>
     </footer>

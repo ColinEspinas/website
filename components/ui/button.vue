@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMouseInElement } from '@vueuse/core'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   text?: string
   afterIcon?: string
   beforeIcon?: string
@@ -30,7 +30,7 @@ const emits = defineEmits<{
 
 const variantClasses = {
   primary: 'bg-base-content-100 text-base-100 ring-0 border-1 border-transparent ring-base-content-100/20 hover:ring-3 transition-all',
-  secondary: 'bg-base-100 text-base-content-100 border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all',
+  secondary: 'bg-base-100 text-base-content-100 border-1 border-base-content-100/20 ring-0 ring-base-content-100/10 not-disabled:hover:ring-3 transition-all disabled:bg-base-200 disabled:text-base-content-300 disabled:cursor-default',
   accent: 'bg-accent text-accent-content ring-0 ring-accent/25 hover:ring-3 border-1 border-accent transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
   glass: 'bg-base-100/40 backdrop-blur-md shadow-md text-base-content-100 border-1 border-base-100/20 ring-0 ring-base-content-100/10 hover:ring-3 transition-all bg-radial-(--gradient-position) from-base-100/20 to-transparent to-50%',
 }
@@ -56,6 +56,9 @@ const buttonRef = useTemplateRef<HTMLDivElement>('button')
 const { elementX, elementY, elementHeight, elementWidth } = useMouseInElement(buttonRef)
 
 const gradientPosition = computed(() => {
+  // Only for accent and glass variants
+  if (!['accent', 'glass'].includes(props.variant))
+    return ''
   // If mouse is not near the edges, don't show the gradient
   const padding = 100
   if (elementX.value > -padding && elementX.value < elementWidth.value + padding
@@ -71,7 +74,7 @@ const gradientPosition = computed(() => {
     v-if="to"
     ref="button"
     :to="to"
-    class="flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
+    class="flex gap-2 items-center outline-none font-medium not-disabled:active:scale-95 cursor-pointer"
     :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape], sizeClasses[size]]"
     :style="{ '--gradient-position': gradientPosition }"
     :target="target"
@@ -84,7 +87,7 @@ const gradientPosition = computed(() => {
   <button
     v-else
     ref="button"
-    class="flex gap-2 items-center outline-none font-medium active:scale-95 cursor-pointer"
+    class="flex gap-2 items-center outline-none font-medium not-disabled:active:scale-95 cursor-pointer"
     :style="{ '--gradient-position': gradientPosition }"
     :disabled="disabled"
     :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape], sizeClasses[size]]"
