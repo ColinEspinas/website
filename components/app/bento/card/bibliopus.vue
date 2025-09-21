@@ -35,7 +35,7 @@ const covers = [
         <UiButton
           variant="glass"
           shape="rounded"
-          before-icon="ph:arrow-square-out"
+          before-icon="ph:arrow-square-out-duotone"
           to="https://bibliopus.app"
           target="_blank"
           text="Visit"
@@ -44,7 +44,7 @@ const covers = [
         <UiButton
           variant="glass"
           shape="rounded"
-          before-icon="ph:github-logo"
+          before-icon="ph:github-logo-duotone"
         />
       </div>
     </footer>

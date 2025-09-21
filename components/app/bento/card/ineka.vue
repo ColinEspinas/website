@@ -17,7 +17,7 @@
         <UiButton
           variant="secondary"
           shape="rounded"
-          before-icon="ph:play"
+          before-icon="ph:play-fill"
           text="Play"
         />
         <UiButton
