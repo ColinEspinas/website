@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { useMouseInElement } from '@vueuse/core'
+import { useMouseInElement, useWindowScroll } from '@vueuse/core'
 
 const navRef = useTemplateRef<HTMLDivElement>('nav')
 const { elementX, elementY, elementHeight, elementWidth } = useMouseInElement(navRef)
+
+const { arrivedState } = useWindowScroll()
 
 const gradientPosition = computed(() => {
   // If mouse is not near the edges, don't show the gradient
@@ -16,8 +18,11 @@ const gradientPosition = computed(() => {
 </script>
 
 <template>
-  <nav class="fixed bottom-0 left-0 w-full flex justify-end z-50">
-    <div class="absolute -bottom-5 left-0 w-full h-40">
+  <nav
+    class="fixed bottom-0 left-0 w-full flex justify-end z-50 transition-all"
+    :class="arrivedState.bottom ? 'opacity-0 translate-y-20 pointer-events-none' : 'opacity-100'"
+  >
+    <div class="absolute -bottom-5 left-0 w-full h-40 pointer-events-none">
       <div class="absolute inset-0 backdrop-blur-[0.1875px] h-full w-full bg-transparent mask-[linear-gradient(to_bottom,transparent,black_12.5%,black_25%,transparent_37.5%)]" />
       <div class="absolute inset-0 backdrop-blur-[0.375px] h-full w-full bg-transparent mask-[linear-gradient(to_bottom,transparent_12.5%,black_25%,black_37.5%,transparent_50%)]" />
       <div class="absolute inset-0 backdrop-blur-[0.75px] h-full w-full bg-transparent mask-[linear-gradient(to_bottom,transparent_25%,black_37.5%,black_50%,transparent_62.5%)]" />
