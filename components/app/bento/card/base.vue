@@ -4,7 +4,7 @@
 
 <template>
   <article
-    class="relative flex flex-col rounded-xl bg-base-100 border-1 border-base-content-100/20 p-2 animate-fade-in"
+    class="relative flex flex-col rounded-xl bg-base-100 border-1 border-base-300 p-2 animate-fade-in"
   >
     <slot />
   </article>

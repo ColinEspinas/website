@@ -3,7 +3,7 @@ const { width } = useWindowSize()
 </script>
 
 <template>
-  <header class="flex flex-col gap-6 my-28">
+  <header class="flex flex-col gap-6">
     <AppAvailability />
     <h2 class="text-5xl font-bold">
       Hello,
@@ -21,7 +21,7 @@ const { width } = useWindowSize()
       A developer focused on crafting tools and experiences to make the web more open, accessible and beautiful.
     </h1>
     <div class="flex flex-col sm:flex-row gap-4">
-      <UiButton text="Start a conversation" variant="accent" class="w-fit" />
+      <UiButton text="Start a conversation" variant="accent" class="w-fit" to="#contact" />
       <div class="flex flex-row gap-2">
         <UiButton
           before-icon="ph:github-logo"

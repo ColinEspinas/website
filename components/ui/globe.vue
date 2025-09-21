@@ -16,7 +16,7 @@ const config: COBEOptions = {
   phi: locationToAngles(props.targetLocation.lat, props.targetLocation.long)[0],
   theta: locationToAngles(props.targetLocation.lat, props.targetLocation.long)[1],
   dark: 0,
-  diffuse: 0.4,
+  diffuse: 2,
   mapSamples: 12000,
   mapBrightness: 1.2,
   mapBaseBrightness: 0,

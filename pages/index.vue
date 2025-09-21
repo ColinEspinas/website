@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col gap-28 mt-28">
     <AppHeader />
     <AppBento>
       <AppBentoCardBibliopus />
@@ -11,5 +11,6 @@
       <AppBentoCardEducation />
       <AppBentoCardIneka />
     </AppBento>
+    <AppContact />
   </div>
 </template>
