@@ -41,7 +41,13 @@ const gap = 24
           class="flex items-center justify-center w-[var(--slide-width)] hover:scale-110 transition-transform duration-300"
           :class="index % 2 === 0 ? 'hover:rotate-6' : 'hover:-rotate-6'"
         >
-          <Icon :name="icon" :size="logoWidth" class="text-base-content-100" />
+          <div class="flex bg-base-200 rounded-lg p-2">
+            <Icon
+              :name="icon"
+              :size="logoWidth"
+              class="text-base-content-100"
+            />
+          </div>
         </div>
       </div>
     </div>

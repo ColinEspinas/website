@@ -33,7 +33,7 @@ const DEFAULT_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1.2, 1.2, 1.2],
   scale: 2,
-  offset: [0, 200],
+  offset: [0, 300],
   markers: [
     { location: [48.8935752, 2.2243825], size: 0.08 },
     { location: [48.7962387, -67.5651266], size: 0.08 },

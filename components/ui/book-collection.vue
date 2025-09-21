@@ -3,58 +3,71 @@ import { UseImage } from '@vueuse/components'
 
 withDefaults(defineProps<{
   id: number
-  covers?: string[]
+  covers?: { src: string, url: string }[]
 }>(), {
   covers: () => [],
 })
 </script>
 
 <template>
-  <NuxtLink
-    :to="`https://shelf.bibliopus.app/collections/${id}`"
-    class="group block cursor-pointer h-full w-full"
-    external
-    target="_blank"
-  >
+  <div class="group block h-full w-full">
     <div
       class="absolute -bottom-4 flex justify-center items-end -space-x-10 w-full h-[calc(90%-68px)]"
     >
-      <UseImage
+      <NuxtLink
         v-if="covers[0]"
-        :src="covers[0]"
-        class="relative rounded h-full object-cover aspect-[180/270] -rotate-6 z-10 select-none bg-base-200 animate-fade-in hover:-translate-y-2 transition-transform"
+        class="relative rounded h-full object-cover aspect-[180/270] -rotate-6 z-10 hover:-translate-y-2 transition-transform"
+        :to="covers[0]?.url"
+        external
+        target="_blank"
       >
-        <template #loading>
-          >
-          <div
-            class="relative rounded h-full object-cover aspect-[180/270] -rotate-6 z-10 select-none bg-base-300 animate-pulse"
-          />
-        </template>
-      </UseImage>
-      <UseImage
+        <UseImage
+          :src="covers[0].src"
+          class="relative rounded h-full object-cover aspect-[180/270] select-none bg-base-200 animate-fade-in "
+        >
+          <template #loading>
+            <div
+              class="relative rounded h-full w-full select-none bg-base-300 animate-pulse"
+            />
+          </template>
+        </UseImage>
+      </NuxtLink>
+      <NuxtLink
         v-if="covers[1]"
-        :src="covers[1]"
-        class="relative rounded h-[calc(103%)] object-cover aspect-[180/270] z-20 mb-1 select-none bg-base-200 animate-fade-in hover:-translate-y-2 transition-transform"
+        class="relative rounded h-full bottom-2 object-cover aspect-[180/270] z-10 hover:-translate-y-2 transition-transform"
+        :to="covers[1]?.url"
+        external
+        target="_blank"
       >
-        <template #loading>
-          >
-          <div
-            class="relative rounded h-full object-cover aspect-[180/270] z-20 mb-1 select-none bg-base-300 animate-pulse"
-          />
-        </template>
-      </UseImage>
-      <UseImage
+        <UseImage
+          :src="covers[1].src"
+          class="relative rounded h-full object-cover aspect-[180/270] z-20 mb-1 select-none bg-base-200 animate-fade-in"
+        >
+          <template #loading>
+            <div
+              class="relative rounded h-full w-full select-none bg-base-300 animate-pulse"
+            />
+          </template>
+        </UseImage>
+      </NuxtLink>
+      <NuxtLink
         v-if="covers[2]"
-        :src="covers[2]"
-        class="relative rounded h-full object-cover aspect-[180/270] rotate-6 z-30 select-none bg-base-200 animate-fade-in hover:-translate-y-2 transition-transform"
+        class="relative rounded h-full object-cover aspect-[180/270] rotate-6 z-10 hover:-translate-y-2 transition-transform"
+        :to="covers[2]?.url"
+        external
+        target="_blank"
       >
-        <template #loading>
-          >
-          <div
-            class="relative rounded h-full object-cover aspect-[180/270] rotate-6 z-30 select-none bg-base-300 animate-pulse"
-          />
-        </template>
-      </UseImage>
+        <UseImage
+          :src="covers[2].src"
+          class="relative rounded h-full object-cover aspect-[180/270] z-30 select-none bg-base-200 animate-fade-in "
+        >
+          <template #loading>
+            <div
+              class="relative rounded h-full w-full select-none bg-base-300 animate-pulse"
+            />
+          </template>
+        </UseImage>
+      </NuxtLink>
     </div>
-  </NuxtLink>
+  </div>
 </template>
