@@ -47,7 +47,7 @@ const gradientPosition = computed(() => {
           variant="ghost"
           shape="rounded"
           size="lg"
-          before-icon="ph:hand-waving-duotone"
+          before-icon="ph:user-duotone"
           to="/about"
           class="text-base font-medium hover:underline"
         />
@@ -57,7 +57,7 @@ const gradientPosition = computed(() => {
           variant="ghost"
           shape="rounded"
           size="lg"
-          before-icon="ph:mailbox-duotone"
+          before-icon="ph:hand-waving-duotone"
           to="/contact"
           class="text-base font-medium hover:underline"
         />
