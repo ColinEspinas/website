@@ -29,6 +29,7 @@ const { width } = useWindowSize()
           shape="rounded"
           to="https://github.com/ColinEspinas"
           target="_blank"
+          aria-label="Visit my GitHub profile"
         />
         <UiButton
           after-icon="ph:x-logo"
@@ -36,6 +37,7 @@ const { width } = useWindowSize()
           shape="rounded"
           to="https://x.com/call_innn"
           target="_blank"
+          aria-label="Visit my X (Twitter) profile"
         />
         <UiButton
           after-icon="ph:linkedin-logo"
@@ -43,6 +45,7 @@ const { width } = useWindowSize()
           shape="rounded"
           to="https://www.linkedin.com/in/colin-espinas/"
           target="_blank"
+          aria-label="Visit my LinkedIn profile"
         />
       </div>
     </div>

@@ -14,6 +14,7 @@ const props = withDefaults(defineProps<{
   to?: string
   target?: '_blank' | '_self'
   external?: boolean
+  ariaLabel?: string
 }>(), {
   type: 'button',
   disabled: false,
@@ -80,6 +81,7 @@ const gradientPosition = computed(() => {
     :style="{ '--gradient-position': gradientPosition }"
     :target="target"
     :external
+    :aria-label="ariaLabel"
   >
     <Icon v-if="beforeIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
@@ -93,6 +95,7 @@ const gradientPosition = computed(() => {
     :disabled="disabled"
     :class="[variantClasses[variant], alignClasses[align], shapeClasses[shape], sizeClasses[size]]"
     :type="type"
+    :aria-label="ariaLabel"
     @click="emits('click')"
   >
     <Icon v-if="beforeIcon" class="my-1" :size="size === 'sm' ? 16 : size === 'md' ? 18 : 20" :name="beforeIcon" />

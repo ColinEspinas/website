@@ -3,7 +3,7 @@ import { UseImage } from '@vueuse/components'
 
 withDefaults(defineProps<{
   id: number
-  covers?: { src: string, url: string }[]
+  covers?: { src: string, url: string, alt: string }[]
 }>(), {
   covers: () => [],
 })
@@ -20,10 +20,12 @@ withDefaults(defineProps<{
         :to="covers[0]?.url"
         external
         target="_blank"
+        aria-label="View book on Bibliopus"
       >
         <UseImage
           :src="covers[0].src"
-          class="relative rounded h-full object-cover aspect-[180/270] select-none bg-base-200 animate-fade-in "
+          :alt="covers[0].alt"
+          class="relative rounded h-full object-cover aspect-[180/270] select-none bg-base-200 animate-fade-in"
         >
           <template #loading>
             <div
@@ -38,9 +40,11 @@ withDefaults(defineProps<{
         :to="covers[1]?.url"
         external
         target="_blank"
+        aria-label="View book on Bibliopus"
       >
         <UseImage
           :src="covers[1].src"
+          :alt="covers[1].alt"
           class="relative rounded h-full object-cover aspect-[180/270] z-20 mb-1 select-none bg-base-200 animate-fade-in"
         >
           <template #loading>
@@ -56,9 +60,11 @@ withDefaults(defineProps<{
         :to="covers[2]?.url"
         external
         target="_blank"
+        aria-label="View book on Bibliopus"
       >
         <UseImage
           :src="covers[2].src"
+          :alt="covers[2].alt"
           class="relative rounded h-full object-cover aspect-[180/270] z-30 select-none bg-base-200 animate-fade-in "
         >
           <template #loading>

@@ -1,4 +1,13 @@
 <script setup lang="ts">
+useHead({
+  title: 'Colin Espinas',
+  meta: [
+    {
+      name: 'description',
+      content: 'A developer focused on crafting tools and experiences to make the web more open, accessible and beautiful.',
+    },
+  ],
+})
 </script>
 
 <template>

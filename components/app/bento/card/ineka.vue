@@ -24,6 +24,10 @@
           variant="secondary"
           shape="rounded"
           before-icon="ph:github-logo"
+          to="https://github.com/ineka-dev/engine"
+          external
+          target="_blank"
+          aria-label="View Ineka source code on GitHub"
         />
       </div>
     </footer>

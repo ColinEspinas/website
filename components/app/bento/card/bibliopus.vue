@@ -3,14 +3,17 @@ const covers = [
   {
     src: 'https://covers.openlibrary.org/b/isbn/1794329897-L.jpg',
     url: 'https://shelf.bibliopus.app/editions/1794329897',
+    alt: 'Outsphere book cover',
   },
   {
     src: 'https://covers.openlibrary.org/b/isbn/9782330155582-L.jpg',
     url: 'https://shelf.bibliopus.app/editions/9782330155582',
+    alt: 'Ball lightning book cover',
   },
   {
     src: 'https://covers.openlibrary.org/b/isbn/9782266239288-L.jpg',
     url: 'https://shelf.bibliopus.app/editions/9782266239288',
+    alt: 'Tau zero book cover',
   },
 ]
 </script>
@@ -45,6 +48,10 @@ const covers = [
           variant="glass"
           shape="rounded"
           before-icon="ph:github-logo-duotone"
+          to="https://github.com/Bibliopus/archive"
+          external
+          target="_blank"
+          aria-label="View Bibliopus source code on GitHub"
         />
       </div>
     </footer>

@@ -72,6 +72,7 @@ const currentLocation = computed(() => locations[currentLocationIndex.value])
             variant="secondary"
             shape="rounded"
             before-icon="ph:arrow-left"
+            aria-label="Go to previous location"
             :disabled="currentLocationIndex === 0"
             @click="getPreviousLocationIndex"
           />
@@ -79,6 +80,7 @@ const currentLocation = computed(() => locations[currentLocationIndex.value])
             variant="secondary"
             shape="rounded"
             before-icon="ph:arrow-right"
+            aria-label="Go to next location"
             :disabled="currentLocationIndex === locations.length - 1"
             @click="getNextLocationIndex"
           />
@@ -89,6 +91,7 @@ const currentLocation = computed(() => locations[currentLocationIndex.value])
             shape="rounded"
             before-icon="ph:eye"
             text="See more"
+            to="/"
           />
         </div>
       </footer>
