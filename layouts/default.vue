@@ -4,6 +4,10 @@ useHead({
   htmlAttrs: {
     lang: localeHead.value.htmlAttrs.lang,
   },
+  meta: [
+    // TODO: remove this when the site is ready
+    { name: 'robots', content: 'noindex, nofollow' },
+  ],
 })
 </script>
 
